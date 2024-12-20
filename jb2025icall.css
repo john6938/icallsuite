@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body,h1,h2,h3,h4,h5,h6 {
+	font-family: "Roboto", sans-serif;
+}
+
+.custom-width {
+    width: 50%; /* Or any other size */
+}
+
+.w3-sidebar {
+  z-index: 2;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+
+.w3-card-1 {
+	w3-orange;
+}
+
+.w3-dropdown-content{
+	z-index: 3;
+}
+
+/*for responsive tables*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: darkgrey}
+
+/*colors hyperlinks*/
+a.link {
+      color: pink;
+}
+
+span {color: #FFF59D ;
+}
+
+/*color = light blue*/
+span.citation {color: #AED6F1 ;
+}
+/*changes color in active page via navigation
+a.active {
+    background-color: white;
+    color: black;
+}*/
+
+/*classes for etext*/
+.default {
+	font-style: normal;
+	/*background-color: white;*/
+}
+.instruction {
+	font-style: italic;
+}
+.outcome {
+	font-style: normal;
+	background-color: beige;
+} 
+.activity {
+	font-style: normal;
+}
+.criteria {
+		font-style: normal;
+		background-color: #fffdd0; /*cream*/
+}
+.resource {
+		font-style: normal;
+		background-color: #caf6ca; /*light green*/
+} 
+.readingText {
+		font-style: normal;
+		background-color: #caf6ca; /*light green*/
+} 
+.motivation {
+		font-style: normal;
+		background-color: 	#B0E0E6; /*powder blue*/
+}
+.review {
+		font-style: normal;
+		background-color: #fdfdab; /*light yellow*/
+}
+
+/*class for iframe to embed elements, e.g. videos and websites*/
+.frame-area {
+  display: block;
+  width: 100%;  /* responsive width setting */
+  max-width: 100%;
+  height: 100%;  /* responsive height setting */
+  overflow: auto;  /*shows scrollbar*/
+  border: #999999 1px solid;
+  margin: 0px;
+  padding: 0px;
+  rows: 100%,*;
+  }
+
+/*end of classes for etext*/
+
+/*control iframe in container */
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+ 
+/* 4x3 Aspect Ratio */
+.iframe-container-4x3 {
+  padding-top: 75%;
+}
+
+/* draggable matching activity */
+.flex-container {
+	display: flex;
+	justify-content: space-between;
+}
+.w3-col.s3, .w3-col.s9 {
+	flex-basis: 0;  /* Tells the browser to compute the size based on content */
+	flex-grow: 1;  /* Allows the items to grow to fill the container */
+	min-width: calc(100%/3); /* Minimum width */
+}
+.draggable {
+	margin-bottom: 10px;
+	background-color: #808080; /* Medium Gray */
+}
+.dropzone {
+	margin-bottom: 10px;
+	background-color: #000000; /* Black */
+}
