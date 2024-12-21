@@ -22,8 +22,8 @@
     <div class="w3-dropdown-hover">
       <button class="w3-button w3-hover-yellow">Tools</button>
       <div class="w3-dropdown-content w3-bar-block w3-card-1">
-        <a href="icall_01.html" class="w3-hover-yellow w3-bar-item w3-button">1 So-neither</a>       
-		<a href="icall_02.html" class="w3-hover-yellow w3-bar-item w3-button">2 Closed questions</a>
+        <a href="icall_01.html" class="w3-hover-yellow w3-bar-item w3-button">1 Adjectives-Order</a>
+		<a href="icall_02.html" class="w3-hover-yellow w3-bar-item w3-button">2 Modal Verbs</a>
         <a href="icall_03.html" class="w3-hover-yellow w3-bar-item w3-button">3 Open questions</a>
         <a href="icall_04.html" class="w3-hover-yellow w3-bar-item w3-button">4 Tag questions</a>		 
         <a href="icall_05.html" class="w3-hover-yellow w3-bar-item w3-button">5 Prepositions</a>			 
@@ -63,7 +63,7 @@
 
 <div class="w3-row w3-padding-16">
 	<div class="w3-twothird w3-container">
-  			<h1 class="w3-text-orange">Unit 1 Rejoinders: so-neither</h1>
+  			<h1 class="w3-text-orange">Tool 2: Modal Verbs</h1>
 	</div>
 </div>
     
@@ -85,8 +85,23 @@
 <div class="w3-row w3-padding-16">   
 <div class="w3-theme-l1 w3-twothird w3-container">
 	<h4 class="w3-text-orange">Tool  <i class="em em-computer"></i></h4> 
-  	<p class="instruction">Put instruction here</p>
-	<p class="default">Put tool here</p>
+  	<p class="instruction">
+		<p class="instruction">Input a sentence and click a button to modify the sentence modal verbs.</p>
+        <p class="instruction">EX ) She sings beautifully.</p>
+	</p>
+	<p class="default">
+		<label for="textInput">Input:</label>
+        <br>
+        <input type="text" id="textInput" class="w3-input w3-border" placeholder="Enter your text here" aria-label="Text input">
+        <div class="w3-margin-top">
+          <button class="w3-button-orange" onclick="modifySentence('possibility')">Possibility</button>
+          <button class="w3-button-orange" onclick="modifySentence('ability')">Ability</button>
+          <button class="w3-button-orange" onclick="modifySentence('obligation')">Obligation</button>
+          <button class="w3-button-orange" onclick="modifySentence('permission')">Permission</button>
+        </div>
+        <div id="loading" class="loading-spinner w3-margin-left"></div>
+        <div id="output" class="w3-container w3-theme-l1 w3-padding w3-margin-top"></div>
+	</p>
 </div>        
 </div>
 	
@@ -181,6 +196,8 @@
 </div>
 
 	<script src="icall.js"></script>
+	<script src="https://unpkg.com/compromise"></script>
+	<script src="tool2.js"></script>
 
 
 </body>
