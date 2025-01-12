@@ -71,7 +71,7 @@
 
 		<div class="w3-row w3-padding-16">
 			<div class="w3-twothird w3-container">
-				<h1 class="w3-text-orange">Tool 3: Participle Clauses</h1>
+				<h1 class="w3-text-orange">Tool 6: So/neither</h1>
 			</div>
 		</div>
 
@@ -95,21 +95,29 @@
 			<div class="w3-theme-l1 w3-twothird w3-container">
 				<h4 class="w3-text-orange">Tool <i class="em em-computer"></i></h4>
 				<p class="instruction">
-					Input two sentence and click process to convert the sentences to participle clause sentence.
+					Input sentence and enter generate button to generate a sentence which has the meaning of <span class="w3-orange">ME TOO</span>
 				</p>
 				<p class="default">
-					<label for="textInput">Input:</label>
-					<br>
-					<input type="text" id="textInput" class="w3-input w3-border"
-						placeholder="example: I looked forward to meet Hilary. I went to Shenzhen."
-						aria-label="Text input">
-					<button class="w3-button-orange w3-margin-top" onclick="convertToParticipleClause()">Process</i>
-					</button>
-				<div id="loading" class="loading-spinner w3-margin-left"></div>
-				<div id="output-for-input" class="w3-container w3-theme-l1 w3-padding w3-margin-top"></div>
-				<div id="output" class="w3-container w3-theme-l1 w3-padding w3-margin-top"></div>
-				<br>
-
+					<div>
+						<label class="w3-text-blue"><b>Sentence</b></label>
+						<input
+						  class="w3-input w3-border"
+						  type="text"
+						  id="text-input"
+						  oninput="changeInput(this.value)"
+						/>
+					  </div>
+				
+					  <button
+						id="button"
+						disabled
+						class="w3-btn w3-blue w3-margin-top"
+						onclick="generate()"
+					  >
+						Generate
+					  </button>
+				
+					  <p>Result - <span id="result"></span></p>
 				</p>
 			</div>
 		</div>
@@ -217,7 +225,7 @@
 
 	<script src="icall.js"></script>
 	<script src="https://unpkg.com/compromise"></script>
-	<script src="tool3.js"></script>
+	<script src="tool6.js"></script>
 
 
 </body>
