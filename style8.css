@@ -1,0 +1,59 @@
+$backColor: black;
+$frontColor: white;
+
+
+
+#i {
+    font-size: 64px;
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    padding: 10px;
+    color: inherit;
+    border: none;
+    border-bottom: 5px solid white;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#analyze-btn {
+    margin: 20px 0;
+    font-size: 1em;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.a {
+    border: 1px solid white;
+    font-size: 32px;
+}
+
+token {
+    display: inline-block;
+    text-align: center;
+    font-size: 1em;
+    margin: 10px 0.15em 0px;
+}
+
+token word {
+    font-family: 'Open Sans Condensed', sans-serif;
+    display: block;
+    line-height: 1em;
+    height: 1em;
+    font-size: 1em;
+}
+
+token word.verb {
+    background: white;
+    color: black;
+}
+
+token tense {
+    font-family: 'Open Sans Condensed', sans-serif;
+    display: block;
+    font-size: 0.4em;
+    height: 1em;
+    text-align: center;
+}
