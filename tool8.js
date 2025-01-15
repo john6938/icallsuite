@@ -80,12 +80,10 @@ function drawSentence(tokensList) {
 }
 
 function getTense(verb) {
-    // 获取动词原始形式
     const root = verb.root || verb.normal || verb.text || '';
     const text = verb.text || '';
     const normal = verb.normal || '';
     
-    // 常见不规则动词的过去式列表
     const irregularPastForms = new Set([
         'went', 'ate', 'saw', 'took', 'came', 'knew', 'grew', 'drew',
         'flew', 'threw', 'spoke', 'drove', 'wrote', 'rode', 'rose',
@@ -96,12 +94,10 @@ function getTense(verb) {
         'chose', 'spoke', 'stole', 'woke', 'wore', 'tore'
     ]);
 
-    // 检查不规则动词过去式
     if (irregularPastForms.has(normal)) {
         return 'Past';
     }
 
-    // 检查是否有过去时标记
     if (verb.tags && (
         verb.tags.includes('PastTense') ||
         verb.tags.includes('Past')
@@ -109,22 +105,19 @@ function getTense(verb) {
         return 'Past';
     }
 
-    // 检查是否以 ed 结尾（规则动词过去式）
     if (normal.endsWith('ed') && !normal.endsWith('need')) {
         return 'Past';
     }
     
-    // 检查特殊的过去时形式
+
     if (['was', 'were'].includes(normal)) {
         return 'Past';
     }
     
-    // 检查将来时
     if (text.startsWith('will ') || text.startsWith('shall ')) {
         return 'Future';
     }
 
-    // 检查时间标记词
     const doc = nlp(text);
     const terms = doc.terms().json();
     for (let term of terms) {
@@ -137,13 +130,13 @@ function getTense(verb) {
 }
 
 function analysisString(str) {
-    // 先打印出动词分析结果，看看具体数据结构
+    // print to see result for check
     let verbs = nlp(str).verbs();
     let verbsParsingResult = verbs.json();
     console.log("Verbs parsing result:", verbsParsingResult);
     console.log("Raw verbs data:", verbs.data());
 
-    // 获取所有词
+    // Get all verbs
     let parsedTerms = nlp(str).terms().json();
     
     let verbTenses = [];
@@ -151,7 +144,7 @@ function analysisString(str) {
         let text = verbParse.text || '';
         let normal = verbParse.normal || '';
         
-        // 打印每个动词的详细信息
+        // log details of verb
         console.log("Processing verb:", {
             text: text,
             normal: normal,
@@ -159,26 +152,26 @@ function analysisString(str) {
             terms: nlp(text).terms().json()
         });
 
-        // 基于动词的形态来判断时态
+        // Decide the tense based on verb
         let doc = nlp(text);
         let verbData = doc.verbs().conjugate()[0];
         console.log("Verb conjugation:", verbData);
 
-        let tense = 'Present'; // 默认时态
+        let tense = 'Present'; // default = present
 
-        // 检查过去式
+        // past
         if (verbData && (
             text === verbData.PastTense ||
             normal === verbData.PastTense
         )) {
             tense = 'Past';
         }
-        // 检查将来时
+        // future
         else if (text.startsWith('will ') || text.startsWith('shall ')) {
             tense = 'Future';
         }
 
-        // 检查其他特征
+        // other features
         let isPassive = text.includes('been ') || text.includes('being ');
         let isPerfect = /\b(have|has|had)\b/.test(text);
         let isContinuous = text.includes('ing');
@@ -190,7 +183,7 @@ function analysisString(str) {
         verbTenses.push(tagPassive + tense + tagPerfect + tagCon);
     }
     
-    // 构建基本 tokens
+    // Establish tokens
     let tokens = [];
     let lowestIndex = 0;
     for (let term of parsedTerms) {
@@ -205,7 +198,7 @@ function analysisString(str) {
         tokens.push(token);
     }
     
-    // 处理动词
+    // Deal with verb
     let wordsList = wordsFromTokens(tokens);
     let verbTexts = verbs.text();
     let verbWords = verbTexts.split(' ');
